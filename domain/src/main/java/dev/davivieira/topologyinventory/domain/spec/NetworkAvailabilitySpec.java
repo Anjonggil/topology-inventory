@@ -25,15 +25,12 @@ public class NetworkAvailabilitySpec  extends AbstractSpecification<Equipment> {
 
     private boolean isNetworkAvailable(Equipment switchNetworks) {
         var availability = true;
-        for (Network network : ((Switch)switchNetworks).getSwitchNetworks()){
-            if (network.getNetworkAddress().equals(address)){
-                if (network.getNetworkAddress().equals(address) &&
-                        network.getNetworkName().equals(name) &&
-                        network.getNetworkCidr() == cidr){
-                    availability = false;
-                    break;
-                }
-            }
+        for (Network network : ((Switch)switchNetworks).getSwitchNetworks()) {
+            if(network.getNetworkAddress().equals(address) &&
+                    network.getNetworkName().equals(name) &&
+                    network.getNetworkCidr() == cidr)
+                availability = false;
+            break;
         }
         return availability;
     }
