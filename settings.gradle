@@ -1,3 +1,4 @@
 rootProject.name = 'topology-inventory'
 
 include 'domain'
+include 'application'

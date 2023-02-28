@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Getter
 @ToString
-public class CoreRouter extends Router{
+public class CoreRouter extends Router {
 
     @Getter
     private Map<Id, Router> routers;
