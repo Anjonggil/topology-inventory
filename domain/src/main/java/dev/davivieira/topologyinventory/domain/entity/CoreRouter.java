@@ -7,6 +7,7 @@ import dev.davivieira.topologyinventory.domain.spec.SameIpSpec;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.Map;
 @ToString
 public class CoreRouter extends Router {
 
-    @Getter
+    @Setter
     private Map<Id, Router> routers;
 
     @Builder

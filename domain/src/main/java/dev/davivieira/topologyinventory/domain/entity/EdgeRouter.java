@@ -6,6 +6,7 @@ import dev.davivieira.topologyinventory.domain.spec.SameIpSpec;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Map;
 @ToString
 public class EdgeRouter extends Router{
 
+    @Setter
     private Map<Id, Switch> switches;
 
     @Builder

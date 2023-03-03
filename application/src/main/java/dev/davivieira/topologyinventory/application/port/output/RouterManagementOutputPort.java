@@ -7,4 +7,6 @@ public interface RouterManagementOutputPort {
     Router retrieveRouter(Id id);
 
     Router persistRouter(Router router);
+
+    Router removeRouter(Id id);
 }
