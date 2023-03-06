@@ -6,6 +6,7 @@ import dev.davivieira.topologyinventory.domain.spec.NetworkAvailabilitySpec;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -15,6 +16,9 @@ public class Switch extends Equipment{
 
     private SwitchType switchType;
     private List<Network> switchNetworks;
+
+    @Setter
+    private Id routerId;
 
     @Builder
     public Switch(Id id, Vendor vendor, Model model, IP ip, Location location, SwitchType switchType, List<Network> switchNetworks) {

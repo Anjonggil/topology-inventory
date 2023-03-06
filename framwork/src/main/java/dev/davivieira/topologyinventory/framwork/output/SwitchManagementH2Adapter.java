@@ -5,7 +5,6 @@ import dev.davivieira.topologyinventory.domain.entity.Switch;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.framwork.output.data.SwitchData;
 import dev.davivieira.topologyinventory.framwork.output.mapper.RouterH2Mapper;
-import lombok.var;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
