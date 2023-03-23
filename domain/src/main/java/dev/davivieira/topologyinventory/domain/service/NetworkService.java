@@ -13,4 +13,8 @@ public class NetworkService {
                 .filter(networkPredicate)
                 .collect(Collectors.toList());
     }
+
+    public static Network findNetwork(List<Network> switchNetworks, Predicate<Network> networkPredicate) {
+        return null;
+    }
 }

@@ -1,5 +1,7 @@
 package dev.davivieira.topologyinventory.application.port.input;
 
+import dev.davivieira.topologyinventory.application.port.output.RouterManagementOutputPort;
+import dev.davivieira.topologyinventory.application.port.output.SwitchManagementOutputPort;
 import dev.davivieira.topologyinventory.application.usecase.SwitchManagementUseCase;
 import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
 import dev.davivieira.topologyinventory.domain.entity.Switch;
@@ -8,6 +10,13 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class SwitchManagementInputPort implements SwitchManagementUseCase {
+
+    SwitchManagementOutputPort switchManagementOutputPort;
+
+    public SwitchManagementInputPort(SwitchManagementOutputPort switchManagementOutputPort){
+        this.switchManagementOutputPort = switchManagementOutputPort;
+    }
+
     @Override
     public Switch createSwitch(Vendor vendor, Model model, IP ip, Location location, SwitchType switchType) {
         return Switch
@@ -31,5 +40,10 @@ public class SwitchManagementInputPort implements SwitchManagementUseCase {
     public EdgeRouter removeSwitchFromEdgeRouter(Switch networkSwitch, EdgeRouter edgeRouter) {
         edgeRouter.removeSwitch(networkSwitch);
         return edgeRouter;
+    }
+
+    @Override
+    public Switch retrieveSwitch(Id switchId) {
+        return null;
     }
 }
