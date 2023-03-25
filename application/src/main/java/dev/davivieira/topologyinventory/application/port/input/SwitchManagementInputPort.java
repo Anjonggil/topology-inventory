@@ -1,6 +1,5 @@
 package dev.davivieira.topologyinventory.application.port.input;
 
-import dev.davivieira.topologyinventory.application.port.output.RouterManagementOutputPort;
 import dev.davivieira.topologyinventory.application.port.output.SwitchManagementOutputPort;
 import dev.davivieira.topologyinventory.application.usecase.SwitchManagementUseCase;
 import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
