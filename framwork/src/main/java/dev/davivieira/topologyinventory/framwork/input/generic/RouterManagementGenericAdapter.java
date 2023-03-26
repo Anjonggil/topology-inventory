@@ -1,32 +1,31 @@
 package dev.davivieira.topologyinventory.framwork.input.generic;
 
-import dev.davivieira.topologyinventory.application.port.input.RouterManagementInputPort;
 import dev.davivieira.topologyinventory.application.usecase.RouterManagementUseCase;
 import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
 import dev.davivieira.topologyinventory.domain.entity.Router;
 import dev.davivieira.topologyinventory.domain.vo.*;
-import dev.davivieira.topologyinventory.framwork.output.RouterManagementH2Adapter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
+@Controller
+@RequiredArgsConstructor
+@RequestMapping("/api/router")
 public class RouterManagementGenericAdapter {
 
-    private RouterManagementUseCase routerManagementUseCase;
+    private final RouterManagementUseCase routerManagementUseCase;
 
-    public RouterManagementGenericAdapter() {
-        setPorts();
-    }
-
-    private void setPorts() {
-        this.routerManagementUseCase = new RouterManagementInputPort(RouterManagementH2Adapter.getInstance());
-    }
-
-    public Router retrieveRouter(Id id){
+    @GetMapping("/{id}")
+    public Router retrieveRouter(@PathVariable Id id){
         return routerManagementUseCase.retrieveRouter(id);
     }
 
-    public Router removeRouter(Id id){
+    @DeleteMapping("/{id}")
+    public Router removeRouter(@PathVariable Id id){
         return routerManagementUseCase.removeRouter(id);
     }
 
+    @PostMapping("")
     public Router createRouter(Vendor vendor,
                                Model model,
                                IP ip,
@@ -42,6 +41,7 @@ public class RouterManagementGenericAdapter {
         return routerManagementUseCase.persistRouter(router);
     }
 
+    @PostMapping("/core-router")
     public Router addRouterToCoreRouter(Id routerId, Id coreRouterId){
         Router router = routerManagementUseCase.retrieveRouter(routerId);
         CoreRouter coreRouter = (CoreRouter) routerManagementUseCase.retrieveRouter(coreRouterId);
@@ -49,6 +49,7 @@ public class RouterManagementGenericAdapter {
                 addRouterToCoreRouter(router, coreRouter);
     }
 
+    @DeleteMapping("/core-router")
     public Router removeRouterFromCoreRouter(Id routerId, Id coreRouterId){
         Router router = routerManagementUseCase.retrieveRouter(routerId);
         CoreRouter coreRouter = (CoreRouter) routerManagementUseCase.retrieveRouter(coreRouterId);

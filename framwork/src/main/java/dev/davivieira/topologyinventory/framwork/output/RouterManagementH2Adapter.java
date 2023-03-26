@@ -5,12 +5,14 @@ import dev.davivieira.topologyinventory.domain.entity.Router;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.framwork.output.data.RouterData;
 import dev.davivieira.topologyinventory.framwork.output.mapper.RouterH2Mapper;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
+@Repository
 public class RouterManagementH2Adapter implements RouterManagementOutputPort {
 
     private static RouterManagementH2Adapter instance;

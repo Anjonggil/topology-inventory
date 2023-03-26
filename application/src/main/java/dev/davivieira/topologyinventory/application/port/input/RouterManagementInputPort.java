@@ -6,15 +6,11 @@ import dev.davivieira.topologyinventory.domain.entity.CoreRouter;
 import dev.davivieira.topologyinventory.domain.entity.Router;
 import dev.davivieira.topologyinventory.domain.entity.factory.RouterFactory;
 import dev.davivieira.topologyinventory.domain.vo.*;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class RouterManagementInputPort implements RouterManagementUseCase {
-    RouterManagementOutputPort routerManagementOutputPort;
-
-    public RouterManagementInputPort(RouterManagementOutputPort routerNetworkOutputPort){
-        this.routerManagementOutputPort = routerNetworkOutputPort;
-    }
+    private final RouterManagementOutputPort routerManagementOutputPort;
 
     @Override
     public Router createRouter(Vendor vendor, Model model, IP ip, Location location, RouterType routerType) {
