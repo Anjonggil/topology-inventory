@@ -7,7 +7,9 @@ import dev.davivieira.topologyinventory.domain.entity.Router;
 import dev.davivieira.topologyinventory.domain.entity.factory.RouterFactory;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class RouterManagementInputPort implements RouterManagementUseCase {
     private final RouterManagementOutputPort routerManagementOutputPort;

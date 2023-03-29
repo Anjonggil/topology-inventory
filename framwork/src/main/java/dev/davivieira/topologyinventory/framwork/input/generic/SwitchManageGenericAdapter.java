@@ -10,25 +10,25 @@ import dev.davivieira.topologyinventory.domain.entity.Switch;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import dev.davivieira.topologyinventory.framwork.output.RouterManagementH2Adapter;
 import dev.davivieira.topologyinventory.framwork.output.SwitchManagementH2Adapter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+@Controller
+@RequiredArgsConstructor
 public class SwitchManageGenericAdapter {
 
-    private SwitchManagementUseCase switchManagementUseCase;
-    private RouterManagementUseCase routerManagementUseCase;
+    private final SwitchManagementUseCase switchManagementUseCase;
+    private final RouterManagementUseCase routerManagementUseCase;
 
-    public SwitchManageGenericAdapter() {
-        setPorts();
-    }
-
-    private void setPorts() {
-        this.routerManagementUseCase = new RouterManagementInputPort(RouterManagementH2Adapter.getInstance());
-        this.switchManagementUseCase = new SwitchManagementInputPort(SwitchManagementH2Adapter.getInstance());
-    }
-
-    public Switch retrieveSwitch(Id switchId){
+    @GetMapping("/{switchId}")
+    public Switch retrieveSwitch(@PathVariable Id switchId){
         return switchManagementUseCase.retrieveSwitch(switchId);
     }
 
+    @PostMapping("")
     public EdgeRouter createAndAddSwitchToEdgeRouter(  Vendor vendor,
                                                        Model model,
                                                        IP ip,

@@ -6,15 +6,14 @@ import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
 import dev.davivieira.topologyinventory.domain.entity.Switch;
 import dev.davivieira.topologyinventory.domain.vo.*;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-@NoArgsConstructor
+@Service
+@RequiredArgsConstructor
 public class SwitchManagementInputPort implements SwitchManagementUseCase {
 
-    SwitchManagementOutputPort switchManagementOutputPort;
-
-    public SwitchManagementInputPort(SwitchManagementOutputPort switchManagementOutputPort){
-        this.switchManagementOutputPort = switchManagementOutputPort;
-    }
+    private final SwitchManagementOutputPort switchManagementOutputPort;
 
     @Override
     public Switch createSwitch(Vendor vendor, Model model, IP ip, Location location, SwitchType switchType) {

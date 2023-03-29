@@ -5,12 +5,14 @@ import dev.davivieira.topologyinventory.domain.entity.Switch;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.framwork.output.data.SwitchData;
 import dev.davivieira.topologyinventory.framwork.output.mapper.RouterH2Mapper;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
+@Repository
 public class SwitchManagementH2Adapter implements SwitchManagementOutputPort {
 
     private static SwitchManagementH2Adapter instance;
