@@ -9,17 +9,16 @@ import dev.davivieira.topologyinventory.domain.vo.IP;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Network;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.function.Predicate;
 
-@NoArgsConstructor
+@Service
+@RequiredArgsConstructor
 public class NetworkManagementInputPort implements NetworkManagementUseCase {
 
-    private RouterManagementOutputPort routerManagementOutputPort;
-
-    public NetworkManagementInputPort(RouterManagementOutputPort routerManagementOutputPort) {
-        this.routerManagementOutputPort = routerManagementOutputPort;
-    }
+    private final RouterManagementOutputPort routerManagementOutputPort;
 
     @Override
     public Network createNetwork(IP networkAddress, String networkName, int networkCidr) {

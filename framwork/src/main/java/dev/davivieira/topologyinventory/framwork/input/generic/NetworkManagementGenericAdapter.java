@@ -9,26 +9,26 @@ import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Network;
 import dev.davivieira.topologyinventory.framwork.output.RouterManagementH2Adapter;
 import dev.davivieira.topologyinventory.framwork.output.SwitchManagementH2Adapter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RequiredArgsConstructor
+@RestController
 public class NetworkManagementGenericAdapter {
 
-    private SwitchManagementUseCase switchManagementUseCase;
-    private NetworkManagementUseCase networkManagementUseCase;
+    private final SwitchManagementUseCase switchManagementUseCase;
+    private final NetworkManagementUseCase networkManagementUseCase;
 
-    public NetworkManagementGenericAdapter() {
-        setPorts();
-    }
-
-    private void setPorts() {
-        this.switchManagementUseCase = new SwitchManagementInputPort(SwitchManagementH2Adapter.getInstance());
-        this.networkManagementUseCase = new NetworkManagementInputPort(RouterManagementH2Adapter.getInstance());
-    }
-
+    @PostMapping
     public Switch addNetworkToSwitch(Network network, Id switchId){
         Switch networkSwitch = switchManagementUseCase.retrieveSwitch(switchId);
         return networkManagementUseCase.addNetworkToSwitch(network, networkSwitch);
     }
 
+    @DeleteMapping
     public Switch removeNetworkFromSwitch(String networkName, Id switchId){
         Switch networkSwitch = switchManagementUseCase.retrieveSwitch(switchId);
         return networkManagementUseCase.removeNetworkFromSwitch(networkName,networkSwitch);
