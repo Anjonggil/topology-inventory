@@ -5,7 +5,6 @@ import dev.davivieira.topologyinventory.application.usecase.SwitchManagementUseC
 import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
 import dev.davivieira.topologyinventory.domain.entity.Switch;
 import dev.davivieira.topologyinventory.domain.vo.*;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +41,6 @@ public class SwitchManagementInputPort implements SwitchManagementUseCase {
 
     @Override
     public Switch retrieveSwitch(Id switchId) {
-        return null;
+        return switchManagementOutputPort.retrieveSwitch(switchId);
     }
 }
