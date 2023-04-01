@@ -41,6 +41,6 @@ public class RouterManagementInputPort implements RouterManagementUseCase {
 
     @Override
     public Router removeRouter(Id id) {
-        return null;
+        return routerManagementOutputPort.removeRouter(id);
     }
 }
