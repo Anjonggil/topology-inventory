@@ -1,15 +1,11 @@
 package dev.davivieira.topologyinventory.framwork.input.generic;
 
-import dev.davivieira.topologyinventory.application.port.input.RouterManagementInputPort;
-import dev.davivieira.topologyinventory.application.port.input.SwitchManagementInputPort;
 import dev.davivieira.topologyinventory.application.usecase.RouterManagementUseCase;
 import dev.davivieira.topologyinventory.application.usecase.SwitchManagementUseCase;
 import dev.davivieira.topologyinventory.domain.entity.EdgeRouter;
 import dev.davivieira.topologyinventory.domain.entity.Router;
 import dev.davivieira.topologyinventory.domain.entity.Switch;
 import dev.davivieira.topologyinventory.domain.vo.*;
-import dev.davivieira.topologyinventory.framwork.output.RouterManagementH2Adapter;
-import dev.davivieira.topologyinventory.framwork.output.SwitchManagementH2Adapter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

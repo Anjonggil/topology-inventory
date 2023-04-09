@@ -1,16 +1,11 @@
 package dev.davivieira.topologyinventory.framwork.input.generic;
 
-import dev.davivieira.topologyinventory.application.port.input.NetworkManagementInputPort;
-import dev.davivieira.topologyinventory.application.port.input.SwitchManagementInputPort;
 import dev.davivieira.topologyinventory.application.usecase.NetworkManagementUseCase;
 import dev.davivieira.topologyinventory.application.usecase.SwitchManagementUseCase;
 import dev.davivieira.topologyinventory.domain.entity.Switch;
 import dev.davivieira.topologyinventory.domain.vo.Id;
 import dev.davivieira.topologyinventory.domain.vo.Network;
-import dev.davivieira.topologyinventory.framwork.output.RouterManagementH2Adapter;
-import dev.davivieira.topologyinventory.framwork.output.SwitchManagementH2Adapter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
